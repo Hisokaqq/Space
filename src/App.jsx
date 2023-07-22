@@ -2,8 +2,8 @@ import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import './App.css';
 import Experience from './Experience';
-import { Perf } from 'r3f-perf';
-import { useEffect, useState } from 'react';
+
+import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import useTransition from './helpers/ValueTransition';
 import AnimatedStars from './components/AnimatedStars';
@@ -15,13 +15,16 @@ function App() {
   const y = useTransition(open, open ? 5 : 0, 450); 
   const z = useTransition(open, open ? -5 : 0, 450); 
 
+  const xCamera = useTransition(open, open ? 16.14 : -2, 450); 
+
+
   return (
     <div className='app' >
       <div className='canvas'>
         <Canvas shadows>
           <PerspectiveCamera
             makeDefault
-            position={[16.14, 8.32, 19.81]}
+            position={[xCamera, 8.32, 19.81]}
             fov={90}
             near={0.1}
             far={1000}
@@ -32,8 +35,9 @@ function App() {
             enablePan={false}
             minDistance={10}
             enableRotate={false}
+            enableZoom={!open}
           />
-          <Perf />
+          
           <color attach='background' args={['#171720']} />
 
           <group position={[x, y, z]}>
