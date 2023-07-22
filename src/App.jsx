@@ -8,7 +8,6 @@ import Sidebar from './components/Sidebar';
 import useTransition from './helpers/ValueTransition';
 import AnimatedStars from './components/AnimatedStars';
 import CameraPosLogging from './helpers/CameraPosLogging';
-
 function App() {
   const [open, setOpen] = useState(false);
 
@@ -45,7 +44,7 @@ function App() {
           </group>
         </Canvas>
       </div>
-      <Sidebar open={open} />
+      <Sidebar open={open} setOpen={setOpen} />
     </div>
   );
 }

@@ -69,6 +69,23 @@ body, html{
   transform: translate(-50%, -50%);
 }
 
+.svg {
+  position: absolute;
+  width: 1.7rem;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: .6rem .4rem;
+  cursor: pointer;
+  transition: width 0.3s; /* Add a transition to smoothly animate the width change */
+}
+
+.svg:hover {
+  width: 2rem; /* Increase the width on hover */
+}
+
+/* Infinite animation */
+
 .bouncing-loader {
   display: flex;
   justify-content: center;

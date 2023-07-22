@@ -3,7 +3,8 @@ import axios from 'axios';
 import Loader from './Loader';
 import usePlanetStore from '../helpers/SelectedPlanetStore';
 
-const Sidebar = ({ open }) => {
+
+const Sidebar = ({ open, setOpen }) => {
   const [planetInfo, setPlanetInfo] = useState(null);
   const [loading, setLoading] = useState(false); // Track loading state
   const planetName = usePlanetStore((state) => state.planet);
@@ -36,6 +37,9 @@ const Sidebar = ({ open }) => {
 
   return (
     <div className={`sidebar ${open ? 'sidebar-open' : ''}`}>
+      <div className='svg' onClick={()=>setOpen(false)}>
+        <img src="./assets/left.svg" alt="Your SVG" className="w-full"/>
+      </div>
       {loading ? (
         <Loader />
       ) : planetInfo ? (
