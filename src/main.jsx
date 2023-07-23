@@ -7,7 +7,6 @@ import './index.css';
 const Fallback = () => {
   return (
     <div className='fallback'>
-      3213
       <Loader />
     </div>
   )

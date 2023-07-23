@@ -1,18 +1,45 @@
-import React from 'react'
+import { useScroll } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import React, { useLayoutEffect } from 'react'
+import { useRef } from 'react'
 
-import AnimatedStars from './components/AnimatedStars'
 import Circles from './components/Circles'
-import usePlanetStore from './helpers/SelectedPlanetStore'
 import Earth from './planets/Earth'
 import Planet from './planets/Planet'
 import Saturn from './planets/Saturn'
 import Sun from './planets/Sun'
+import gsap from 'gsap'
+
 const Experience = ({setOpen}) => {
  
+  const spaceRef = useRef()
+  const scroll = useScroll()
+  const tl = useRef()
+  useFrame((state, delta)=>{
+    tl.current.seek(scroll.offset * tl.current.duration())
+  })
+
+  useLayoutEffect(()=> {
+    tl.current = gsap.timeline({defaults: {duration: 2, ease: 'power1.inOut'}})
+
+    tl.current
+    .to(spaceRef.current.position, {x: 5}, 2)
+    .to(spaceRef.current.position, {z: -10}, 2)
+    .to(spaceRef.current.rotation, {y: -10}, 2)
+
+    .to(spaceRef.current.position, {x: -10}, 6)
+    .to(spaceRef.current.rotation, {y: 5}, 6)
+
+    .to(spaceRef.current.position, {x: 0}, 11)
+    .to(spaceRef.current.position, {z: -15}, 11)
+    
+
+
+
+  },[])
 
   return (
-    <  >
-      
+    <group ref={spaceRef}>
         <Sun axisSpeed={.025}/>
         <Circles />
 
@@ -26,7 +53,7 @@ const Experience = ({setOpen}) => {
           <Planet path = './textures/uranus.jpg' distance = {21} speed={.068} axisSpeed = {.0099} size={.8}  ring = {true} name = {"Uranus"}   setOpen={setOpen} />
           <Planet path = './textures/neptune.jpg' distance = {26} speed={.054} axisSpeed = {.0097} size={.8} ring = {true} name = {"Neptune"}   setOpen={setOpen} />
         </group>
-    </>
+    </group>
   )
 }
 

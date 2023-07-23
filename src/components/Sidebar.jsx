@@ -3,6 +3,13 @@ import axios from 'axios';
 import Loader from './Loader';
 import usePlanetStore from '../helpers/SelectedPlanetStore';
 
+const PlanetInfo = ({ label, value }) => (
+  <div className="gap-1 flex items-center w-[95%] lg:w-[90%]  xl:w-[90%]">
+    <p className="text-gray-300 text-lg">{label}:</p>
+    <div className="bg-white h-0.5 flex-1 self-end mb-2"></div>
+    <span className="text-sm text-gray-400">{value}</span>
+  </div>
+);
 
 const Sidebar = ({ open, setOpen }) => {
   const [planetInfo, setPlanetInfo] = useState(null);
@@ -45,32 +52,16 @@ const Sidebar = ({ open, setOpen }) => {
       ) : planetInfo ? (
         <div className="flex flex-col m-5 w-full ">
           {/* Display the planet information here */}
-          <h2 className="mx-auto text-gray-200 text-3xl my-10 italic font-bold" >{planetInfo.name}</h2>
-          <div className=" h-full flex justify-center  flex-col ml-5 gap-5">
-          <div className= "gap-2 ">
-            <p className="text-gray-300 text-lg">Mass: <span className="text-sm text-gray-400 ">{planetInfo.mass}</span></p>
-          </div>
-          <div className= "gap-2 ">
-            <p className="text-gray-300 text-lg">Radius: <span className="text-sm text-gray-400">{planetInfo.radius}</span></p>
-          </div>
-          <div className= "gap-2 ">
-            <p className="text-gray-300 text-lg">Period: <span className="text-sm text-gray-400">{planetInfo.period}</span></p>
-          </div>
-          <div className= "gap-2 ">
-            <p className="text-gray-300 text-lg">Semi major axis: <span className="text-sm text-gray-400">{planetInfo.semi_major_axis}</span></p>
-          </div>
-          <div className= "gap-2 ">
-            <p className="text-gray-300 text-lg">Temperature: <span className="text-sm text-gray-400">{planetInfo.temperature}</span></p>
-          </div>
-          <div className= "gap-2 ">
-            <p className="text-gray-300 text-lg">Distance light year: <span className="text-sm text-gray-400">{planetInfo.distance_light_year}</span></p>
-          </div>
-          <div className= "gap-2 ">
-            <p className="text-gray-300 text-lg">Host star mass: <span className="text-sm text-gray-400">{planetInfo.host_star_mass}</span></p>
-          </div>
-          <div className= "gap-2 ">
-            <p className="text-gray-300 text-lg">Host star temperature: <span className="text-sm text-gray-400">{planetInfo.host_star_temperature}</span></p>
-          </div>
+          <h1 className="mx-auto text-gray-200 text-3xl my-10 italic font-bold" >{planetInfo.name}</h1>
+          <div className=" h-full flex justify-center  items-start flex-col ml-5 gap-5">
+          <PlanetInfo label="Mass" value={planetInfo.mass} />
+      <PlanetInfo label="Radius" value={planetInfo.radius} />
+      <PlanetInfo label="Period" value={planetInfo.period} />
+      <PlanetInfo label="Semi major axis" value={planetInfo.semi_major_axis} />
+      <PlanetInfo label="Temperature" value={planetInfo.temperature} />
+      <PlanetInfo label="Distance light year" value={planetInfo.distance_light_year} />
+      <PlanetInfo label="Host star mass" value={planetInfo.host_star_mass} />
+      <PlanetInfo label="Host star temperature" value={planetInfo.host_star_temperature} />
           </div>
         </div>
       ) : (
