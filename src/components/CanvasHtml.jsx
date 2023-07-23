@@ -1,6 +1,5 @@
 import { Scroll } from '@react-three/drei'
 import React, { useRef } from 'react'
-import TextLoop from "react-text-loop";
 import ArrowDown from './ArrowDown';
 
 const CanvasHtml = ({open}) => {
@@ -8,10 +7,8 @@ const CanvasHtml = ({open}) => {
   return (
     <Scroll html style={{width: '100%'}} >
               <div  style={{ color: '#cdcbca',position: 'absolute', top: `15vh`,left: '50%', fontSize: '4em', transform: `translate(-50%,-50%)` }} className={`${open && "opacity-0"} transition-opacity duration-300 ease-in-out`}>
-              <TextLoop interval={10000} >
               <h1 className="title" >SPACE</h1>
               <h1 className='title' >Expolore</h1>
-              </TextLoop>
               </div>
               <ArrowDown />
 
