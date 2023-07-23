@@ -59,7 +59,7 @@ function App() {
             <CanvasHtml open={open}  />
             </ScrollControls>
           </group>
-          
+          <Rig givenRef={planetsRef} />
         </Canvas>
       </div>
       <Sidebar open={open} setOpen={setOpen} />
