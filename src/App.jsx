@@ -29,6 +29,7 @@ function App() {
 
   return (
     <div className='app' >
+      
       <div className='canvas'>
         <Canvas shadows>
           <PerspectiveCamera
@@ -52,7 +53,7 @@ function App() {
           <group position={[x, y, z]}>
             <CameraPosLogging event={'mousedown'} />
             <AnimatedStars />
-            <ScrollControls pages={3.6} damping={.4}  >
+            <ScrollControls pages={3.6} damping={.2}  >
             <group ref={planetsRef}>
             <Experience setOpen={setOpen}/>
             </group>

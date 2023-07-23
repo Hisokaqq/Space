@@ -40,7 +40,7 @@
 .sidebar {
   width: 20%;
   height: 100vh;
-  background-color: rgba(46, 60, 105, 0.8);
+  background-color: rgba(32, 32, 32, 0.8);
   z-index: 100;
   position: absolute;
   top: 0;
@@ -234,3 +234,6 @@ a {
   padding: 0 40px;
 }
 
+/* Cursor.css */
+
+/* index.css */

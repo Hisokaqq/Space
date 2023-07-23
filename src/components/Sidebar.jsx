@@ -30,8 +30,7 @@ const Sidebar = ({ open, setOpen }) => {
         );
         setPlanetInfo(response.data[0]);
         setLoading(false); // Set loading to false after data is fetched
-        console.log(response.data[0]);
-      } catch (error) {
+       } catch (error) {
         setLoading(false); // Set loading to false if there's an error
         console.error('Error: ', error);
       }
