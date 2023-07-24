@@ -18,14 +18,19 @@ function App() {
 
   
   const [open, setOpen] = useState(false);
-
+  const [loaded, setLoaded] = useState(false);
+  
   const x = useTransition(open, open ? 10 : 0, 450); 
   const y = useTransition(open, open ? 5 : 0, 450); 
   const z = useTransition(open, open ? -5 : 0, 450); 
-
   const xCamera = useTransition(open, open ? 16.14 : -2, 450); 
   const planetsRef = useRef()
   
+  
+ 
+
+  
+
 
   return (
     <div className='app' >
@@ -54,10 +59,10 @@ function App() {
             <CameraPosLogging event={'mousedown'} />
             <AnimatedStars />
             <ScrollControls pages={3.6} damping={.2}  >
-            <group ref={planetsRef}>
-            <Experience setOpen={setOpen}/>
-            </group>
-            <CanvasHtml open={open}  />
+                <group ref={planetsRef} >
+                  <Experience setOpen={setOpen}/>
+                </group>
+              <CanvasHtml open={open}  />
             </ScrollControls>
           </group>
           <Rig givenRef={planetsRef} />

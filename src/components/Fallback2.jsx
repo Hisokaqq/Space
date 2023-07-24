@@ -24,7 +24,7 @@ const Fallback2 = ({ handleClick }) => {
   }, []);
 
   return (
-    <div className="fallback fallback2 bg-gray-950">
+    <div className="fallback fallback2 bg-gray-950" onClick={handleClickAnim}>
       <div className="text-gray-100 h-20 text-5xl overflow-hidden">
         <motion.div animate={controls}>
           <motion.div initial={{ y: 100 }} animate={{ y: 0 }} className="click">

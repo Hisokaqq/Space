@@ -2,7 +2,7 @@ import { Scroll } from '@react-three/drei';
 import React from 'react';
 import ArrowDown from './ArrowDown';
 import { motion } from "framer-motion";
-import { fade, fadeUp } from '../helpers/Animations';
+import { fade, fadeUp, titleAnim } from '../helpers/Animations';
 import UseScroll from '../helpers/UseScroll';
 
 const CanvasHtml = ({ open }) => {
@@ -13,9 +13,11 @@ const CanvasHtml = ({ open }) => {
   return (
     <Scroll html style={{ width: '100%' }} >
       <div style={{ color: '#cdcbca', position: 'absolute', top: `15vh`, left: '50%', fontSize: '4em', transform: `translate(-50%,-50%)` }} className={`${open && "opacity-0"} transition-opacity duration-300 ease-in-out`}>
-        <h1 className="title" >Explore SPACE</h1>
+        <motion.h1 initial="hidden" animate={"show"} variants={titleAnim} className="title" >Explore SPACE</motion.h1>
       </div>
+      <motion.div initial="hidden" animate={"show"} variants={titleAnim}>
       <ArrowDown />
+      </motion.div>
       <motion.div ref={element} animate={controls}  variants={fade(0, open)} initial="hidden"  className={` row absolute top-[132vh]`} >
         <div className="flex-col flex gap-4 absolute lg:left-[10%] sm:left-5 w-[540px]" >
           <div className={`${open && "opacity-0"} transition-opacity duration-300 ease-in-out `}>

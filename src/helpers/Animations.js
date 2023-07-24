@@ -25,3 +25,12 @@ export const fadeUp ={
         },
     },
 }
+
+export const titleAnim = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 2.75, ease: "easeOut" },
+    },
+  
+}

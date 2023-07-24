@@ -19,7 +19,7 @@ const Main = () => {
     <React.StrictMode>
       <Suspense fallback={<Fallback />}>
         
-        {showApp ? <App /> : <Fallback2 handleClick={handleClick}/>}
+        {showApp ? <div><App /></div> : <Fallback2 handleClick={handleClick}/>}
       </Suspense>
     </React.StrictMode>
   );
