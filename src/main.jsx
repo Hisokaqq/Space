@@ -4,7 +4,6 @@ import App from './App.jsx';
 import Fallback from './components/Fallback.jsx';
 import './index.css';
 
-import { motion } from 'framer-motion';
 import Fallback2 from './components/Fallback2.jsx';
 
 
@@ -17,9 +16,9 @@ const Main = () => {
 
   return (
     <React.StrictMode>
-      <Suspense fallback={<Fallback />}>
+      <Suspense fallback={<Fallback2 />}>
         
-      {showApp ? <div><App /></div> : <Fallback2 handleClick={handleClick}/>}
+      {showApp ? <div><App /></div> : <Fallback handleClick={handleClick}/>}
       </Suspense>
     </React.StrictMode>
   );
