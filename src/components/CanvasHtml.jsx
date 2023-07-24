@@ -16,7 +16,9 @@ const CanvasHtml = ({ open }) => {
         <motion.h1 initial="hidden" animate={"show"} variants={titleAnim} className="title" >Explore SPACE</motion.h1>
       </div>
       <motion.div initial="hidden" animate={"show"} variants={titleAnim}>
+        <div className={`${open && "opacity-0"} transition-opacity duration-300 ease-in-out`}>
       <ArrowDown />
+        </div>
       </motion.div>
       <motion.div ref={element} animate={controls}  variants={fade(0, open)} initial="hidden"  className={` row absolute top-[132vh]`} >
         <div className="flex-col flex gap-4 absolute lg:left-[10%] sm:left-5 w-[540px]" >
