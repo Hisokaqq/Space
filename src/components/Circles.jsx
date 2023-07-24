@@ -1,5 +1,4 @@
 import React from 'react';
-import { Circle } from '@react-three/drei';
 
 const Circles = () => {
   return (

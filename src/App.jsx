@@ -1,36 +1,22 @@
-import { OrbitControls, PerspectiveCamera, Scroll, ScrollControls } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, PerspectiveCamera, ScrollControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
 import './App.css';
 import Experience from './Experience';
-
-import { useEffect, useRef, useState } from 'react';
+import {  useRef, useState } from 'react';
 import Sidebar from './components/Sidebar';
 import useTransition from './helpers/ValueTransition';
 import AnimatedStars from './components/AnimatedStars';
-import CameraPosLogging from './helpers/CameraPosLogging';
-
 import CanvasHtml from './components/CanvasHtml';
-
-
 import Rig from './components/Rig';
 
 function App() {
-
-  
   const [open, setOpen] = useState(false);
-  const [loaded, setLoaded] = useState(false);
   
   const x = useTransition(open, open ? 10 : 0, 450); 
   const y = useTransition(open, open ? 5 : 0, 450); 
   const z = useTransition(open, open ? -5 : 0, 450); 
   const xCamera = useTransition(open, open ? 16.14 : -2, 450); 
   const planetsRef = useRef()
-  
-  
- 
-
-  
-
 
   return (
     <div className='app' >
@@ -56,7 +42,6 @@ function App() {
           <color attach='background' args={['#171720']} />
 
           <group position={[x, y, z]}>
-            <CameraPosLogging event={'mousedown'} />
             <AnimatedStars />
             <ScrollControls pages={3.6} damping={.2}  >
                 <group ref={planetsRef} >

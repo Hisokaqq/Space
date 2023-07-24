@@ -3,7 +3,6 @@ import { useTexture } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import * as TWEEN from '@tweenjs/tween.js'
-import ISS from '../models/ISS'
 import Moon from './Moon'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -59,7 +58,6 @@ const handleUpdatePlanet = () => {
          emissiveIntensity={hovered? 10: 1.5}
          />
     </mesh>
-    <ISS />
     <Moon  />
     </group>
   )

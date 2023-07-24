@@ -25,7 +25,7 @@ const Fallback = () => {
                 key={index}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1 + index * 0.3, duration: 1 }}
+                transition={{ delay:  index * .1, duration: 1 }}
               >
                 {word}
               </motion.span>
@@ -35,7 +35,7 @@ const Fallback = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1 + words.length * 0.3, duration: 1 }} // Add the delay of 1 second after the last word
+              transition={{ delay:  words.length * .1, duration: 1 }} // Add the delay of 1 second after the last word
             >
               <CircleLoader />
             </motion.div>
