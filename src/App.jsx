@@ -17,7 +17,6 @@ function App() {
   const z = useTransition(open, open ? -5 : 0, 450); 
   const xCamera = useTransition(open, open ? 16.14 : -2, 450); 
   const planetsRef = useRef()
-
   return (
     <div className='app' >
       

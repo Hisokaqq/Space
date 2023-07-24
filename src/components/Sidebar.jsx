@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loader from './Loader';
 import usePlanetStore from '../helpers/SelectedPlanetStore';
-
 const PlanetInfo = ({ label, value }) => (
   <div className="gap-1 flex items-center w-[95%] lg:w-[90%]  xl:w-[90%]">
     <p className="text-gray-300 text-lg">{label}:</p>

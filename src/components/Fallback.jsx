@@ -78,7 +78,7 @@ const Fallback = ({ handleClick }) => {
       {newMessage && (
         <div className="text-gray-100 h-20 text-5xl overflow-hidden absolute left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%]">
           <motion.div animate={controls2}>
-            <motion.div initial={{ y: 100 }} animate={{ y: 0 }} className="click">
+            <motion.div initial={{ y: 100 }} animate={{ y: 0 }} className="click text-sm sm:text-xl md:text-2xl lg:text-3xl">
               To Explore Space Click Any <div className="kbd">key</div>
             </motion.div>
           </motion.div>

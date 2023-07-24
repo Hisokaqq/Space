@@ -1,15 +1,14 @@
 import React, { Suspense, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client'; // Updated import
 import App from './App.jsx';
 import Fallback from './components/Fallback.jsx';
 import './index.css';
 
 import Fallback2 from './components/Fallback2.jsx';
 
-
 const Main = () => {
   const [showApp, setShowApp] = useState(false);
-  
+
   const handleClick = () => {
     setShowApp(true);
   };
@@ -17,11 +16,13 @@ const Main = () => {
   return (
     <React.StrictMode>
       <Suspense fallback={<Fallback2 />}>
-        
-      {showApp ? <div><App /></div> : <Fallback handleClick={handleClick}/>}
+        {showApp ? <div><App /></div> : <Fallback handleClick={handleClick} />}
       </Suspense>
     </React.StrictMode>
   );
 };
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+// Use createRoot to render your application
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+root.render(<Main />);
